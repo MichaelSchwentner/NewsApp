@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 
 import com.example.recyclerwiederholung_news.MainViewModel
+import com.example.recyclerwiederholung_news.adapter.CommentAdapter
 import com.example.recyclerwiederholung_news.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment(){
 
     private lateinit var binding: FragmentDetailBinding
-    private var viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +28,11 @@ class DetailFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val newsId = requireArguments().getInt("newsId")
 
+        viewModel.loadComments(newsId)
+
+        val commentAdapter = CommentAdapter()
+        binding.detailCommentRecycler.adapter = commentAdapter
+
         viewModel.news.observe(viewLifecycleOwner) { list ->
             val article = list.find { it.id == newsId }
 
@@ -38,5 +44,16 @@ class DetailFragment : Fragment(){
             }
 
         }
+
+        viewModel.commentList.observe(viewLifecycleOwner) {
+            commentAdapter.submitList(it)
+        }
+
+        binding.detailCommentSendButton.setOnClickListener {
+            val newComment = binding.detailCommentEdit.text.toString()
+            viewModel.addComment(newComment)
+            binding.detailCommentEdit.setText("")
+        }
+
     }
 }

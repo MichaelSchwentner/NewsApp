@@ -13,7 +13,8 @@ class Repository {
                 R.drawable.raubtier,
                 "Deutschland",
                 "23.01.2023",
-                "auchtung achtung!\nDie fressen dich"
+                "auchtung achtung!\nDie fressen dich",
+                mutableListOf("top", "flop", "Erster")
             ),
             NewsArticle(
                 2,
@@ -21,7 +22,8 @@ class Repository {
                 R.drawable.ai,
                 "Welt",
                 "26.01.2023",
-                "glaubt doch niemand"
+                "glaubt doch niemand",
+                mutableListOf()
             ),
             NewsArticle(
                 3,
@@ -29,7 +31,8 @@ class Repository {
                 R.drawable.hochhaus,
                 "Schweiz",
                 "28.01.2023",
-                "das ist ein Test"
+                "das ist ein Test",
+                mutableListOf()
             ),
             NewsArticle(
                 4,
@@ -37,7 +40,8 @@ class Repository {
                 R.drawable.leo,
                 "USA",
                 "30.01.2023",
-                "Fände ich super"
+                "Fände ich super",
+                mutableListOf()
             ),
             NewsArticle(
                 5,
@@ -45,7 +49,8 @@ class Repository {
                 R.drawable.cast_away,
                 "USA",
                 "13.01.2023",
-                "ojdifuiaberubfvchcbdskau jbhuhbuzbvuz"
+                "ojdifuiaberubfvchcbdskau jbhuhbuzbvuz",
+                mutableListOf()
             )
         )
     }
